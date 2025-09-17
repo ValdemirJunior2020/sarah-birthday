@@ -1,38 +1,94 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+/* Main container */
+.app {
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+  text-align: center;
+  position: relative;
+  padding: 1rem;
   color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.App-link {
-  color: #61dafb;
+/* Dark overlay for readability */
+.overlay {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 1.5rem;
+  border-radius: 15px;
+  width: 100%;
+  max-width: 600px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Title */
+.title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  animation: fadeIn 2s ease-in-out;
+}
+
+/* Subtitle */
+.subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  animation: fadeIn 3s ease-in-out;
+}
+
+/* Notes */
+.notes {
+  margin-top: 1.5rem;
+}
+
+.note {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  font-style: italic;
+}
+
+.fade {
+  animation: fadeIn 2s ease-in-out;
+}
+
+/* Footer */
+.footer {
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  color: #ffb6c1; /* light pink */
+  font-style: italic;
+}
+
+/* Larger screens */
+@media (min-width: 768px) {
+  .title {
+    font-size: 3rem;
   }
-  to {
-    transform: rotate(360deg);
+  .subtitle {
+    font-size: 1.5rem;
   }
+  .note {
+    font-size: 1.3rem;
+  }
+}
+
+/* Fade animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+.music-btn {
+  margin-top: 1rem;
+  background: #ff69b4;
+  border: none;
+  color: white;
+  padding: 0.7rem 1.2rem;
+  font-size: 1rem;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.music-btn:hover {
+  background: #ff1493;
 }
