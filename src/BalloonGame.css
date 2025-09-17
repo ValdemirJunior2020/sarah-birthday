@@ -1,0 +1,30 @@
+.balloon-game {
+  margin-top: 2rem;
+}
+
+.game-title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #ffd700;
+}
+
+.balloon-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.balloon {
+  font-size: 3rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.balloon:hover {
+  transform: scale(1.2);
+}
+
+.popped {
+  visibility: hidden;
+}

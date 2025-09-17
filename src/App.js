@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import Confetti from "react-confetti";
 import { useWindowSize } from "react-use";
+import BalloonGame from "./BalloonGame";
 import "./App.css";
 
 function App() {
@@ -9,7 +10,6 @@ function App() {
   const [isPlaying, setIsPlaying] = useState(true);
   const audioRef = useRef(null);
 
-  // 36 love notes
   const loveNotes = [
     "You make every day brighter 💫",
     "I’m grateful for your love 💖",
@@ -49,7 +49,6 @@ function App() {
     "I love you forever ♾️"
   ];
 
-  // Auto-cycle notes every 4 seconds
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prev) => (prev < loveNotes.length - 1 ? prev + 1 : 0));
@@ -57,7 +56,6 @@ function App() {
     return () => clearInterval(interval);
   }, [loveNotes.length]);
 
-  // Toggle play/pause
   const toggleMusic = () => {
     if (isPlaying) {
       audioRef.current.pause();
@@ -77,27 +75,25 @@ function App() {
         backgroundSize: "cover",
       }}
     >
-      {/* 🎉 Confetti */}
       <Confetti width={width} height={height} />
 
-      {/* Content overlay */}
       <div className="overlay">
         <h1 className="title">Happy 36th Birthday, Sarah! 🎂</h1>
         <p className="subtitle">
           You are my greatest blessing, my joy, and my love forever. 💖
         </p>
 
-        {/* 💌 Love Notes */}
+        {/* Love Notes */}
         <div className="notes">
           <p key={index} className="note fade">
             {loveNotes[index]}
           </p>
         </div>
 
-        {/* 👣 Footer */}
+        {/* Footer */}
         <div className="footer">Made with ❤️ by Junior</div>
 
-        {/* 🎶 Music Controls */}
+        {/* Music */}
         <audio
           ref={audioRef}
           autoPlay
@@ -107,6 +103,9 @@ function App() {
         <button className="music-btn" onClick={toggleMusic}>
           {isPlaying ? "⏸ Pause Music" : "▶️ Play Music"}
         </button>
+
+        {/* 🎮 Birthday Game */}
+        <BalloonGame />
       </div>
     </div>
   );
